@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html id="homepage">
+  <head>
+    <%- include('./_blocks/head') %>
+    <title><%= $site.siteName %></title>
+  </head>
+
+  <body>
+    <div class="homepage-main">
+      <div class="homepage-title-area">
+        <h1 class="homepage-title"><%= $page.mainTitle %></h1>
+        <h2 class="homepage-subtitle"><%= $page.subtitle %></h2>
+      </div>
+      <nav class="homepage-navigation">
+        <ul>
+          <% for (const menuItem of $page.menu) {%>
+          <li><a href="<%= menuItem.link %>"><%= menuItem.label %></a></li>
+          <% } %> <% if($link.rss) { %>
+          <li><a href="<%= $link.rss %>">RSS</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
