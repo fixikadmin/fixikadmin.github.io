@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./_blocks/head') %>
+    <title>Archives - <%= $site.siteName %></title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/"><%= $site.siteName %></a>
+      </nav>
+      <div class="blogs-list-block">
+        <% const yearArticles = _.groupBy($site.articles, ({createdAt}) =>
+        moment(createdAt).year()); const years = Object.keys(yearArticles).sort().reverse(); for
+        (const year of years) { %>
+        <div class="annual-block">
+          <time class="annual-block-headline"><%= year %></time>
+          <ol>
+            <% for (const article of yearArticles[year]) { %>
+            <li>
+              <time datetime="<%= article.createdAt %>" class="annual-block-date">
+                <%= moment(article.createdAt).format($page.dateFormat) %>
+              </time>
+              <a class="annual-block-title" href="/<%= article.fullUrl %>">
+                <%= article.title %>
+              </a>
+            </li>
+            <% } %>
+          </ol>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
