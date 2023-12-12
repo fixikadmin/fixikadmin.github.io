@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Zimbra CLI - Zimbra - WiKi</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/katex/katex.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">Zimbra - WiKi</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Zimbra CLI</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1308296028000"
+                  >2011-06-17 10:33</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1702364279291"
+                  >2023-12-12 08:57</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">CLI</span>
+              
+              <span class="keyword">Zimbra</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><p><strong>Zimbra CLI</strong></p>
+<p><strong><strong>===== Installing =====</strong></strong></p>
+<p><strong>Zimbra is designed for a dedicated server. It brings all packages like</strong><br />
+<strong>apache, ldap, mysql which means that it might proove difficult to add any</strong><br />
+<strong>other webservice to the zimbra-apache or something like this.</strong></p>
+<p><strong><strong>It means that zimbra should run on its own server where nothing else runs.</strong></strong></p>
+<p>Install-process seems critical. If something fails or if you got<br />
+interrupted, you should start all over again by purging all</p>
+<p><strong>zimbra-packages and rm -rf /opt/zimbra.</strong></p>
+<p>**The usual zimbra-install-process goes on for a while and then ends in **<br />
+**the config-menu. After you set the adminpassword and the serverclass **<br />
+<strong>you can apply the settings with "a" and thats it.</strong><br />
+*<em>*</em><br />
+*<em>*</em><br />
+****please be very careful when cloning or moving zimbra !! the new zimbra **<br />
+<strong>can easily mess up your old zimbra cause it knows its hostname and its</strong><br />
+<strong>passwords. Be sure to read the section about moving zimbra on this **<br />
+<strong><strong>page!!!</strong></strong></strong></p>
+<h2 id="accessing-zimbra">===== Accessing zimbra =====</h2>
+<p><strong><a title="https://zimbraserver:7071/zimbraAdmin" href="https://zimbraserver:7071/zimbraAdmin">https://zimbraserver:7071/zimbraAdmin</a></strong></p>
+<h2 id="tuning-zimbra">===== Tuning zimbra =====</h2>
+<p><strong>==== increase max. mailsize ====</strong></p>
+<p><strong>To increase the maximum mailsize from 10M to 50M, execute the following:</strong><br />
+<code>zmprov mcf zimbraFileUploadMaxSize 50000000</code></p>
+<p><strong>and check if proper set</strong><br />
+<code>zmprov gacf zimbraFileUploadMaxSize</code></p>
+<p><strong>==== show more than 100 messages per page ====</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmprov ma peter zimbraPrefMailItemsPerPage 500</strong><br />
+<strong></strong></p>
+<p><strong>==== set a smtp smart-relay-host and make zimbra use TLS to communicate ====</strong></p>
+<p><strong>as zimbra-user:</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mi>m</mi><mi>p</mi><mi>r</mi><mi>o</mi><mi>v</mi><mi>m</mi><mi>c</mi><mi>f</mi><mi>z</mi><mi>i</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>a</mi><mi>M</mi><mi>t</mi><mi>a</mi><mi>R</mi><mi>e</mi><mi>l</mi><mi>a</mi><mi>y</mi><mi>H</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>S</mi><mi>M</mi><mi>T</mi><mi>P</mi><mi mathvariant="normal">.</mi><mi>H</mi><mi>O</mi><mi>S</mi><mi>T</mi><mi mathvariant="normal">.</mi><mi>C</mi><mi>O</mi><mi>M</mi><mo>∗</mo><mo>∗</mo><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">zmprov mcf zimbraMtaRelayHost SMTP.HOST.COM**
+**</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em"></span><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mord mathnormal">m</span><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.03588em">v</span><span class="mord mathnormal">m</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.10764em">f</span><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mord mathnormal">imb</span><span class="mord mathnormal" style="margin-right:0.02778em">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">Mt</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.00773em">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">yHos</span><span class="mord mathnormal" style="margin-right:0.13889em">tSMTP</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em">H</span><span class="mord mathnormal" style="margin-right:0.13889em">OST</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em">COM</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em"></span><span class="mord">∗</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em"></span><span class="mord">∗</span></span></span></span></span>zmprov gacf zimbraMtaRelayHost</strong><br />
+<strong>zimbraMtaRelayHost: SMTP.HOST.COM</strong><br />
+<strong><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mi>i</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>a</mi><mi mathvariant="normal">@</mi><mi>z</mi><mi>i</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>a</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">zimbra@zimbra:/data</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em"></span><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mord mathnormal">imb</span><span class="mord mathnormal" style="margin-right:0.02778em">r</span><span class="mord mathnormal">a</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mord mathnormal">imb</span><span class="mord mathnormal" style="margin-right:0.02778em">r</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em"></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span></span></span></span></span> postconf -e smtp_use_tls=yes</strong><br />
+<strong>$ postfix reload</strong><br />
+<strong>postfix/postfix-script: refreshing the Postfix mail system</strong><br />
+<strong></strong></p>
+<p><strong>===== commandline =====</strong></p>
+<p><strong>all this must be run as zimbra-user !!</strong></p>
+<p><strong>==== zmcontrol =====</strong></p>
+<p>**  * zmcontrol status**<br />
+**  * zmcontrol stop**<br />
+**  * zmcontrol start**<br />
+**  * zmcontrol maintance**</p>
+<p><strong>==== zmprov =====</strong></p>
+<p><strong>used for provisioning</strong></p>
+<p><strong><code class="jop-noMdConv">zmprov help command | less</code> will give you a list of available</strong><br />
+<strong>commands like creating domains and users.</strong></p>
+<p><strong>==== zmmailbox ====</strong></p>
+<p><strong>this is for modifying mailboxes</strong></p>
+<p><strong><code class="jop-noMdConv">zmmailbox help commands|less</code></strong></p>
+<p><strong>===== working with zimbra =====</strong></p>
+<p><strong>==== read/create filters ===</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmmailbox -m peter -z gfrl</strong><br />
+<strong>"bikekitchen" active all header "subject" contains "[BikeKitschen]"</strong><br />
+<strong>fileinto "_projects/bike/BikeKitschXXn" stop</strong><br />
+<strong></strong></p>
+<p><strong>==== creating users ===</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+**zmprov ca USER@ZIMBADOMAIN.COM PASSWORD displayName 'MY NAME' givenName **<br />
+**NAME sn NAME zimbraMailCanonicalAddress MYEMAIL zimbraPrefFromAddress **<br />
+<strong>MYEMAIL</strong><br />
+<strong></strong></p>
+<p><strong>you can pipe scripts like the following directely to zmprov</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>createAccount andy@domain.com password displayName 'Andy Anderson'</strong><br />
+<strong>givenName Andy sn Anderson</strong><br />
+<strong>createAccount betty@domain.com password displayName 'Betty Brown'</strong><br />
+<strong>givenName Betty sn Brown</strong><br />
+<strong></strong></p>
+<p>**<strong>NOTE</strong> to get a list of all attributes to a certain user and **<br />
+<strong>therefore a list of all available attributes you can perform</strong><br />
+**"zmprov **<br />
+<strong><strong>ga USER" as described in next chapter.</strong></strong><br />
+*<em>*</em><br />
+<strong>==== list details for a user ====</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmprov ga USER</strong><br />
+<strong></strong></p>
+<p><strong>==== list all users ===</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmprov gaa</strong><br />
+<strong>zmprov -l gaa    ... for  zimbra 6.x</strong><br />
+<strong></strong></p>
+<p><strong>==== changing password ===</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmprov setPassword NAME PASS</strong><br />
+<strong></strong></p>
+<p><strong>==== listing/deleting/creating mailboxes  ===</strong></p>
+<p><strong>This will get you all mailboxes to a certain user:</strong><br />
+<strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmmailbox -z -m USER@DOMAIN.COM gaf</strong><br />
+<strong></strong></p>
+<p><strong>This will delete a certain mailbox:</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmmailbox -z -m USER@DOMAIN.COM df SUB/LINUX/WINDOWS/GEEK</strong><br />
+<strong></strong></p>
+<p><strong>==== tracing messages ====</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmmsgtrace -i 3836172.14011130514432170</strong><br />
+<strong>zmmsgtrace -s user@example.com</strong><br />
+<strong>zmmsgtrace -r user2@example2.com -t 20051105</strong><br />
+<strong></strong><br />
+<em><em>*</em><br />
+<em><em>*</em><br />
+**  * -s ... sender</em></em><br />
+**  * -r ... recipient**<br />
+**  * -t ... time**<br />
+**  * -i ... message_id**<br />
+*<em>*</em></p>
+<p><strong>===== tuning zimbra =====</strong></p>
+<p><strong>==== auto-poll external accounts ====</strong></p>
+<p>**When you set up external accounts these are not queried automatically **<br />
+<strong>but you have to manually load them. This is very annoying. <strong>Note</strong> that</strong><br />
+**the poll-time you set up in preferences does nothing have to do with **<br />
+*<em>external accounts.*</em><br />
+*<em>*</em><br />
+**There is a setting to do what we want but its not accessible via GUI. **<br />
+<strong>Reason seems to be that this polling is done regardless if the user is</strong><br />
+**logged in or not and so if many users have many external accounts and **<br />
+*<em>a short poll-intervall this can put heavy load on the server.*</em><br />
+<strong>(My guess is that the polling-code is not so perfect yet to include the</strong><br />
+*<em>setting in the official GUI but this might change in coming Zimbra7)*</em><br />
+*<em>*</em><br />
+<strong>Ok : You first have to enable the setting for your COS (ClassOfService)</strong><br />
+*<em>which could mean:*</em><br />
+*<em>*</em><br />
+<strong><code class="jop-noMdConv"></code></strong><br />
+<strong>zmprov mc default zimbraDataSourcePollingInterval 10m</strong><br />
+<strong>zmprov mc ANOTHERCOS zimbraDataSourcePollingInterval 10m</strong><br />
+<strong></strong></p>
+<p>*<em>*</em><br />
+<strong>This is important. It does not mean that all users will have a</strong><br />
+<strong>poll-interval of 10minutes on external sources now, but it means</strong><br />
+**that if users have set a poll-interval that it will work. I dont **<br />
+*<em>know if this COS-value is automatically passed to new users.*</em><br />
+*<em>*</em><br />
+**Second you have to enable it for all external accounts for all users. **<br />
+<strong>There are scripts to do that, but they didnt work for me. So I did it</strong><br />
+<strong>by hand for the handful of users that brought this issue to my attention,</strong><br />
+*<em>but writing a script should be <strong>very easy</strong>*</em><br />
+*<em>*</em><br />
+<strong>'' zmprov gds USERNAME ''</strong><br />
+*<em>*</em><br />
+**This will list all external accounts.  <strong>zimbraDataSourceName</strong> is what **<br />
+*<em>we want for each account. Because then we can do the following:*</em><br />
+*<em>*</em></p>
+<p>*<em>''zmprov mds USERNAME  DATASOURCENAME zimbraDataSourcePollingInterval 300''*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>300 seconds is 5 Minutes and remember : you have to run <strong>zmprov mds</strong> for every external account on every user !!*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>We set 10m on COS-level and 5m on user-level. I dont have any glue which one will apply at the end.  Sorry.*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>People recommenden using zimbraDataSourceID instead of zimbraDataSourceName in case you have unusual chars in your zimbraDataSourceName, but this didnt work for me, but enclosing the name in simple "hyphs" worked well.*</em></p>
+<p>*<em>*</em></p>
+<p><strong>===== Moving or Cloning zimbra ======</strong></p>
+<p>*<em>When you want to move your zimbra or clone it be very careful.  Zimbra accesses all its services (especially ldap) via its hostname/publicIP.*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>So when you move your zimbra (ie. with rsync) and fire it up then the new zimbra still will partially access your old zimbra and mess things up. It happened to me and I had to revert to backup. zimbra is a difficult customer.*</em></p>
+<p><em><em>*</em><br />
+**  - rsync your old zimbra to your new zimbra</em>*<br />
+**  - shut down old zimbra**<br />
+**  - rsync again to get a consistant clone**</p>
+<p>**  - edit /etc/hosts on new server and set old server name to new ip. So your new zimbra cannot talk with your old zimbra**</p>
+<p>**  - change hostname on new zimbra : /opt/zimbra/libexec/zmsetservername -n <newservername class="jop-noMdConv">**</newservername></p>
+<p>**  - fire up old zimbra if you like**<br />
+**  - fire up new zimbra**<br />
+**  - remove the entry in /etc/hosts**</p>
+<p><strong>===== Troubleshooting zimbra ======</strong></p>
+<p><strong>Zimbra is a container that provides all you need and you dont need to know how things exactely work in the inside. Thats very convinient ... until things start breaking and you dont have a clue how to fix it.</strong></p>
+<p><strong>==== logfiles =====</strong></p>
+<p>*<em>Zimbra provides loads of log-files in <strong>/opt/zimbra/log</strong> - However one must never forget to look into <strong>/var/log/syslog</strong> - This is where the main-stuff comes together. Especially the output of the very initial zimbra-start-command.  (zimbra is started on your machine via the standard linux rc-structure : <strong>/etc/init.d/zimbra start</strong>)*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>However zimbra-logging is a mess in my eyes cause there is no central point where to increase log-levels.  To increase the log-level of zimbra-ldap to log connections for debugging-purpose you have to run:*</em></p>
+<p>*<em>*</em><br />
+<strong><strong>zmlocalconfig -e ldap_common_loglevel=16896</strong></strong><br />
+*<em>*</em></p>
+<p><strong>see man slapd for the meanings of this value.  Restarting ldap is not required. After a few minutes ldap starts logging to /var/log/zimbra although there are reports that it goes to /var/log/debug ...  You'll find out :)</strong></p>
+<p><strong>==== rivaling packages like mysql =====</strong></p>
+<p>*<em>remember : zimbra includes ldap, mysql, apache ...  - which means that your system must not have any of these installed cause otherwise the mysql of your system will bind to the standard mysql-port and your zimbra-mysql will fail to start or work proper.*</em></p>
+<p>*<em>*</em></p>
+<p><strong>So check if there is any other service running that might block your zimbra-services. Especially on modern linuxes (like ubuntu) some packages turn up unexpectedly.  On my ubuntu 8.04 mysql and postfix seemed to have instelled "themselfes" when I installed a minor package.</strong></p>
+<p>*<em>*</em></p>
+<p>*<em>Note: semi-gurus can of course install a mysql on their system and binding to a different port. Normal users will not want to do this.*</em></p>
+<p>*<em>*</em></p>
+<p><strong>==== starting/stopping zimbra =====</strong></p>
+<p><strong>as zimbra-user you can use <strong>zmcontrol</strong> as described above, but never forget the mainswitch which is operated as root : <strong>/etc/init.d/zimbra start/stop</strong></strong></p>
+<p><strong>==== zimbra is a slow starter =====</strong></p>
+<p><strong>starting zimbra - especially after a hard shutdown - will take several minutes. Thats fine, but dont be unpatient. Check the logfiles (again mainly syslog) to see if there is still activity going on.</strong></p>
+<p><strong>==== trouble: zimbra does not start =====</strong></p>
+<p>*<em>When your zimbra does not start by itself after booting and you cant get it going by starting/stopping ....*</em></p>
+<p><strong>Maybe even running <strong>zmcontrol status</strong> gives a timeout and in syslog you find irriating lines like:</strong></p>
+<p><strong><code class="jop-noMdConv"></code></strong></p>
+<p><strong>May  5 09:15:03 zimbra zimbramon[7310]: 7310:info: zmstatuslog timeout after 60 seconds</strong></p>
+<p><strong></strong><br />
+<em><em>*</em><br />
+<em><em>Then try doing it the hard way:*</em><br />
+<em><em>*</em><br />
+**  * as zimbra user : zmcontrol stop</em></em><br />
+**  * as root : /etc/init.d/zimbra stop</em>*</p>
+<p>**  * now look on your system what is still running. <strong>ps waux</strong> is the tool you might want to use. Find all zimbra-related processes still running and kill them. But especially find all processes that does not belong to zimbra but might interfere like processes with suspious names like ..sql.. ...www... ...ldap... ...mail... ...post... ...apache... ...web...  - you get the idea. find them  - kill them and make sure they will never start again.**</p>
+<p>**  * now start zimbra /etc/init.d/zimbra start  and be patient. Starting zimbra will take minutes. Watch the logfiles.**</p>
+<p><strong>==== certificate expired ===</strong></p>
+<p><strong>As from 6.x in the zimbra-admin-interface you can easily create a new self-signed certificate and overwrite the old one. This step is recommended anyway after a fresh installation cause you can enter your local information while zimbra defaults to country=US and knows nothing about your companies name ...</strong></p>
+<p><strong>==== ldap - and java-errors ====</strong></p>
+<p>*<em>after upgrading my zimbra-server (zimbra 6.0.10)  from Ubuntu 8.04LTS64 to 10.04LTS64 zimbra was running extremely unstable and had to be restarted every few hours cause mail-delivery to zimbra MTA via lmtp started failing and users got these strange errors in the webinterface or could not connect via imap.  I drove me mad until I found the solution.*</em></p>
+<p>*<em>*</em></p>
+<p><strong>bugreport including the fix : <a title="http://bugzilla.zimbra.com/show_bug.cgi?id=42870" href="http://bugzilla.zimbra.com/show_bug.cgi?id=42870">http://bugzilla.zimbra.com/show_bug.cgi?id=42870</a></strong></p>
+<p>*<em>*</em><br />
+*<em>The errors always contain something like this:*</em><br />
+*<em>*</em></p>
+<p>**  * com.zimbra.common.service.ServiceException: system failure: ZimbraLdapContext**</p>
+<p>**  * java.net.SocketException: Bad file descriptor**<br />
+*<em>*</em></p>
+<p>*<em>Of course a filesystem-check is always recommenden if one faces "Bad file desciptors", but FS was clear.*</em></p>
+<p>*<em>*</em></p>
+<p>*<em>So I mad to changes to my system. First I increased some kernel-limits (reboot after editing the file):*</em></p>
+<p>*<em>*</em><br />
+<strong><strong>/etc/security/limits.conf:</strong></strong><br />
+<strong><code class="jop-noMdConv"></code></strong><br />
+<strong>root soft nofile 1048576</strong><br />
+<strong>root hard nofile 1048576</strong><br />
+<strong>zimbra soft nofile 1048576</strong><br />
+<strong>zimbra hard nofile 1048576</strong><br />
+<strong></strong><br />
+*<em>*</em></p>
+<p>*<em>I think on performant servers with high zimbra-load you could even increase this values.*</em></p>
+<p>*<em>*</em><br />
+*<em>*</em></p>
+<p>*<em>Additionally I increased the timeout-values for zimbra by running the following as zimbra*</em></p>
+<p>*<em>*</em><br />
+*<em><strong>zmlocalconfig -e ldap_read_timeout=300000</strong>*</em><br />
+*<em>*</em><br />
+<strong>and the other values listed below:</strong><br />
+*<em>*</em><br />
+<strong><code class="jop-noMdConv"></code></strong><br />
+<strong>ldap_common_writetimeout = 0</strong><br />
+<strong>ldap_connect_pool_timeout = 120000</strong><br />
+<strong>ldap_connect_timeout = 300000</strong><br />
+<strong>ldap_read_timeout = 300000</strong><br />
+<strong></strong><br />
+*<em>*</em><br />
+*<em>Then you have to restart zimbra or at least the zimbra-ldap*</em><br />
+*<em>*</em></p>
+<p><strong>====== inside zimbra =====</strong></p>
+<p><strong>Zimbra stores its files - at least its mails - on the harddisk, but the "where" is stored in the mysql.</strong></p>
+<p><strong>A detailed explanation about the structure of mail-storage can be found at : <a title="http://wiki.zimbra.com/index.php?title=Account_mailbox_database_structure" href="http://wiki.zimbra.com/index.php?title=Account_mailbox_database_structure">http://wiki.zimbra.com/index.php?title=Account_mailbox_database_structure</a></strong></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
