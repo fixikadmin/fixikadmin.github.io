@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Crearea unui cont GALSYNC - Zimbra - WiKi</title>
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">Zimbra - WiKi</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Crearea unui cont GALSYNC</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1543219571000"
+                  >2018-11-26 10:06</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1702381712307"
+                  >2023-12-12 13:48</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">Zimbra</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h2 id="crearea-unui-cont-galsync">Crearea unui cont GALSYNC</h2>
+<p><strong>1. Se creaza contul e-mail</strong></p>
+<p><code>zmprov ca galsync@tld.md PaSSw0RD</code></p>
+<p><strong>2. Se adauga Data source</strong></p>
+<p><code>zmgsautil addDataSource -a galsync@tld.md -n InternalGAL --domain probatiune.gov.md -t zimbra -f zimbra -p 60m</code></p>
+<p><strong>3. Se cauta DATA SOURCE ID</strong><br />
+<code>zmprov gds galsync@tld.md</code></p>
+<p><strong>4. Se modifica Domenul</strong></p>
+<p><code>zmprov modifyDomain tld.md fa0362b6-7e7a-4463-9214-9af047f03f86</code></p>
+<p><strong>Surse:</strong></p>
+<ol>
+<li><a title="https://wiki.zimbra.com/wiki/GAL_Sync_Account" href="https://wiki.zimbra.com/wiki/GAL_Sync_Account">https://wiki.zimbra.com/wiki/GAL_Sync_Account</a></li>
+<li><a title="https://wiki.zimbra.com/wiki/Steps_to_add_and_remove_datasource_from_GAL_account" href="https://wiki.zimbra.com/wiki/Steps_to_add_and_remove_datasource_from_GAL_account">https://wiki.zimbra.com/wiki/Steps_to_add_and_remove_datasource_from_GAL_account</a></li>
+</ol>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

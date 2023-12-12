@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Zimlet RSS/ATOM  - Zimbra - WiKi</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">Zimbra - WiKi</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Zimlet RSS/ATOM </h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1698219224000"
+                  >2023-10-25 10:33</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1702381238040"
+                  >2023-12-12 13:40</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">Zimbra</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><p><strong>Adaugarea din CLI</strong></p>
+<div><pre class="hljs"><code>zmmailbox <span class="hljs-operator">-</span>z <span class="hljs-operator">-</span>m <span class="hljs-keyword">user</span><span class="hljs-variable">@tld</span>.md cf <span class="hljs-operator">-</span>u <span class="hljs-string">'https://blog.zimbra.com/feed/'</span> <span class="hljs-string">'/Zimbra Blog'</span>
+zmmailbox <span class="hljs-operator">-</span>z <span class="hljs-operator">-</span>m <span class="hljs-keyword">user</span><span class="hljs-variable">@tld</span>.md cf <span class="hljs-operator">-</span>u <span class="hljs-string">'https://wiki.zimbra.com/security-advisory-feed.php'</span> <span class="hljs-string">'/Zimbra Security'</span></code></pre></div>
+<p><strong>In Zimbra 10 Modern UI este Zimmlet</strong></p>
+<div><pre class="hljs"><code>
+wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Zimbra/</span>zimbra-zimlet-rssfeed<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/0.0.1/</span>zimbra-zimlet-rssfeed.zip -O <span class="hljs-regexp">/tmp/</span>zimbra-zimlet-rssfeed.zip
+
+sudo su - zimbra
+zmzimletctl deploy <span class="hljs-regexp">/tmp/</span>zimbra-zimlet-rssfeed.zip
+zmmailboxdctl restart</code></pre></div>
+<p>Sursa: <a title="https://blog.zimbra.com/2023/10/re-introducing-rss-feeds-in-zimbra/" href="https://blog.zimbra.com/2023/10/re-introducing-rss-feeds-in-zimbra/">https://blog.zimbra.com/2023/10/re-introducing-rss-feeds-in-zimbra/</a></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
