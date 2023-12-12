@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>PHPMYADMIN +NGINX - Zimbra - WiKi</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/katex/katex.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">Zimbra - WiKi</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">PHPMYADMIN +NGINX</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1442305185000"
+                  >2015-09-15 11:19</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1442306107000"
+                  >2015-09-15 11:35</time
+                ></span
+              >
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h3 id="4-installing-phpmyadmin-phpmyadmin-vhost-configuration">4 Installing phpMyAdmin + phpMyAdmin Vhost Configuration</h3>
+<p>Next we install phpMyAdmin as follows:<br />
+apt-get install phpmyadmin<br />
+You will see the following questions:</p>
+<p>Web server to reconfigure automatically: &lt;-- select none (because only apache2 and lighttpd are available as options)</p>
+<p>Configure database for phpmyadmin with dbconfig-common? &lt;-- No</p>
+<p>You can now find phpMyAdmin in the /usr/share/phpmyadmin/ directory. Now we must configure our vhost so that nginx can find phpMyAdmin in that directory.</p>
+<p>Open /etc/nginx/sites-available/www.example.com.vhost...<br />
+vi /etc/nginx/sites-available/www.example.com.vhost<br />
+... and add the following part to the server {} container:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server {<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />location /phpmyadmin {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />index index.php index.html index.htm;<br class="jop-noMdConv" />location ~ ^/phpmyadmin/(.+.php)$ {<br class="jop-noMdConv" />try_files $uri =404;<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />fastcgi_pass 127.0.0.1:9000;<br class="jop-noMdConv" />fastcgi_index index.php;<br class="jop-noMdConv" />fastcgi_param SCRIPT_FILENAME <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>c</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>n</mi><msub><mi>t</mi><mi>r</mi></msub><mi>o</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">document_root</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">oc</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mord mathnormal">oo</span><span class="mord mathnormal">t</span></span></span></span></span>fastcgi_script_name;<br class="jop-noMdConv" />include /etc/nginx/fastcgi_params;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location ~* ^/phpmyadmin/(.+.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location /phpMyAdmin {<br class="jop-noMdConv" />rewrite ^/* /phpmyadmin last;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />}</td>
+</tr>
+</tbody>
+</table>
+<p>Reload nginx:<br />
+/etc/init.d/nginx reload</p>
+<p>That's it! You can now go to <a title="http://www.example.com/phpmyadmin" href="http://www.example.com/phpmyadmin">http://www.example.com/phpmyadmin</a> or <a title="http://www.example.com/phpMyAdmin" href="http://www.example.com/phpMyAdmin">http://www.example.com/phpMyAdmin</a> in a browser, and if all goes well, you can log into phpMyAdmin:</p>
+<p><a title="https://www.howtoforge.com/images/phpmyadmin_nginx_debian_squeeze_ubuntu_11.04/big/1.png" href="https://www.howtoforge.com/images/phpmyadmin_nginx_debian_squeeze_ubuntu_11.04/big/1.png"><img src="/_resources/7a05fd7dd5a993853786ca8e00c81734." width="550" height="399" class="jop-noMdConv" /></a></p>
+<p><a title="https://www.howtoforge.com/images/phpmyadmin_nginx_debian_squeeze_ubuntu_11.04/big/2.png" href="https://www.howtoforge.com/images/phpmyadmin_nginx_debian_squeeze_ubuntu_11.04/big/2.png"><img src="/_resources/6e5ff2b2ba56a51acb6018273a9265fd." width="550" height="399" class="jop-noMdConv" /></a></p>
+<p>If you use http<strong>s</strong> instead of http for your vhost, you should add the line fastcgi_param HTTPS on; to your phpMyAdmin configuration like this:</p>
+<p>vi /etc/nginx/sites-available/www.example.com.vhost</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server {<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />location /phpmyadmin {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />index index.php index.html index.htm;<br class="jop-noMdConv" />location ~ ^/phpmyadmin/(.+.php)$ {<br class="jop-noMdConv" />try_files $uri =404;<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />fastcgi_pass 127.0.0.1:9000;<br class="jop-noMdConv" />fastcgi_param HTTPS on; # &lt;-- add this line<br class="jop-noMdConv" />fastcgi_index index.php;<br class="jop-noMdConv" />fastcgi_param SCRIPT_FILENAME <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>c</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>n</mi><msub><mi>t</mi><mi>r</mi></msub><mi>o</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">document_root</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">oc</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mord mathnormal">oo</span><span class="mord mathnormal">t</span></span></span></span></span>fastcgi_script_name;<br class="jop-noMdConv" />include /etc/nginx/fastcgi_params;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location ~* ^/phpmyadmin/(.+.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location /phpMyAdmin {<br class="jop-noMdConv" />rewrite ^/* /phpmyadmin last;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />}</td>
+</tr>
+</tbody>
+</table>
+<p>If you use both http and https for your vhost, you need to add the following section to the http {} section in /etc/nginx/nginx.conf (before the two include lines) which determines if the visitor uses http or https and sets the $fastcgi_https variable (which we will use in our www.example.com vhost) accordingly:</p>
+<p>vi /etc/nginx/nginx.conf</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[...]<br class="jop-noMdConv" />http {<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />## Detect when HTTPS is used<br class="jop-noMdConv" />map $scheme $fastcgi_https {<br class="jop-noMdConv" />default off;<br class="jop-noMdConv" />https on;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />##<br class="jop-noMdConv" /># Virtual Host Configs<br class="jop-noMdConv" />##<br class="jop-noMdConv" />include /etc/nginx/conf.d/<em>.conf;<br class="jop-noMdConv" />include /etc/nginx/sites-enabled/</em>;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />[...]</td>
+</tr>
+</tbody>
+</table>
+<p>Then open your vhost configuration file, and instead of fastcgi_param HTTPS on; you add the line fastcgi_param HTTPS $fastcgi_https; so that you can use phpMyAdmin for both http and https requests:</p>
+<p>vi /etc/nginx/sites-available/www.example.com.vhost</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server {<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />location /phpmyadmin {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />index index.php index.html index.htm;<br class="jop-noMdConv" />location ~ ^/phpmyadmin/(.+.php)$ {<br class="jop-noMdConv" />try_files $uri =404;<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />fastcgi_pass 127.0.0.1:9000;<br class="jop-noMdConv" />fastcgi_param HTTPS $fastcgi_https; # &lt;-- add this line<br class="jop-noMdConv" />fastcgi_index index.php;<br class="jop-noMdConv" />fastcgi_param SCRIPT_FILENAME <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>o</mi><mi>c</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>n</mi><msub><mi>t</mi><mi>r</mi></msub><mi>o</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">document_root</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">oc</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mord mathnormal">oo</span><span class="mord mathnormal">t</span></span></span></span></span>fastcgi_script_name;<br class="jop-noMdConv" />include /etc/nginx/fastcgi_params;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location ~* ^/phpmyadmin/(.+.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {<br class="jop-noMdConv" />root /usr/share/;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />}<br class="jop-noMdConv" />location /phpMyAdmin {<br class="jop-noMdConv" />rewrite ^/* /phpmyadmin last;<br class="jop-noMdConv" />}<br class="jop-noMdConv" />[...]<br class="jop-noMdConv" />}</td>
+</tr>
+</tbody>
+</table>
+<p>Don't forget to reload nginx afterwards:<br />
+/etc/init.d/nginx reload</p>
+<p><a title="https://www.howtoforge.com/running-phpmyadmin-on-nginx-lemp-on-debian-squeeze-ubuntu-11.04" href="https://www.howtoforge.com/running-phpmyadmin-on-nginx-lemp-on-debian-squeeze-ubuntu-11.04">https://www.howtoforge.com/running-phpmyadmin-on-nginx-lemp-on-debian-squeeze-ubuntu-11.04</a></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
