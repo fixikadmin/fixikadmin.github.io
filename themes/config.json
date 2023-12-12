@@ -1,8 +1,8 @@
 {
-  "pages": {
-    "index" : [],
-    "article: [],
-    "archives: [],
-    "about": []
-  }
+	"pages": {
+		"index" : [],
+		"article: [],
+		"archives: [],
+		"about": [],
+	}
 }
