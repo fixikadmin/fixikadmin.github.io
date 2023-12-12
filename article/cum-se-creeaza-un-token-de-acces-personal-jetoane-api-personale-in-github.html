@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>Cum se creează un token de acces personal, jetoane API personale în Github - Zimbra - WiKi</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">Zimbra - WiKi</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">Cum se creează un token de acces personal, jetoane API personale în Github</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1702380131996"
+                  >2023-12-12 13:22</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1702380211352"
+                  >2023-12-12 13:23</time
+                ></span
+              >
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="cum-se-creează-un-token-de-acces-personal-jetoane-api-personale-în-github">Cum se creează un token de acces personal, jetoane API personale în Github</h1>
+<img class="bg lo mq c jop-noMdConv" width="600" height="315" loading="eager" role="presentation" src="/_resources/a18f414f4b1b43fc987e4908eab58fc8.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:600px;max-width:100%;height:auto" />
+<p>Când am introdus codul pe GitHub, arată că nu aveți Token de acces personal. Când încerc să împing cod pe github, arată metoda cURL de autentificare (crearea unui token de acces personal). Am încercat asta, dar încă nu pot apăsa pe GitHub.</p>
+<p>Deci haideți să rezolvăm aceste probleme, sper să vă fie de mare ajutor.</p>
+<h2 id="primul-pas-conectați-vă-la-github-și-accesați-secțiunea-setare">Primul pas Conectați-vă la Github și accesați secțiunea Setare.</h2>
+<img class="bg lo mq c jop-noMdConv" width="700" height="266" loading="lazy" role="presentation" src="/_resources/fd9f68e70c284bb99fc9dc46d3be9557.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="2-în-bara-laterală-din-stânga-faceți-clic-pe-setări-pentru-dezvoltatori">2. În bara laterală din stânga, faceți clic pe Setări pentru dezvoltatori.</h2>
+<img class="bg lo mq c jop-noMdConv" width="700" height="282" loading="lazy" role="presentation" src="/_resources/81446ae274154891b588c21c76c5593f.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="al-treilea-pas-în-bara-laterală-din-stânga-faceți-clic-pe-jetoane-de-acces-personale"><strong>Al treilea pas În bara laterală din stânga , faceți clic pe Jetoane de acces personale.</strong></h2>
+<img class="bg lo mq c jop-noMdConv" width="700" height="263" loading="lazy" role="presentation" src="/_resources/fdb8b6eb65e74432bb89f3345f0f448e.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="pasul-4-oferiți-control-complet-asupra-depozitelor-private">Pasul 4 Oferiți control complet asupra depozitelor private.</h2>
+<p>Selectați domeniile sau permisiunile pe care doriți să le acordați acest simbol. Pentru a utiliza simbolul pentru a accesa depozitele din linia de comandă, selectați repo.</p>
+<img class="bg lo mq c jop-noMdConv" width="700" height="275" loading="lazy" role="presentation" src="/_resources/da502f27a2a3453b9c7364ab1672332d.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="pasul-5-faceți-clic-pe-generare-token-nou">Pasul 5 Faceți clic pe Generare token nou</h2>
+<img class="bg lo mq c jop-noMdConv" width="700" height="262" loading="lazy" role="presentation" src="/_resources/926e508d550141938404c2d4a0468a5d.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="acum-jetonul-dvs-personal-de-acces-a-fost-generat-cu-succes"><strong>Acum, jetonul dvs. personal de acces a fost generat cu succes.</strong></h2>
+<img class="bg lo mq c jop-noMdConv" width="700" height="235" loading="lazy" role="presentation" src="/_resources/a417844b227947928496c4186b2a184a.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<h2 id="pentru-a-seta-configurația-globală-a-numelui-de-utilizatore-mail">Pentru a seta configurația globală a numelui de utilizator/e-mail:</h2>
+<div><pre class="hljs"><code>Deschideți linia <span class="hljs-keyword">de</span> comandă.
+Setați-vă numele <span class="hljs-keyword">de</span> utilizator:
+git config - <span class="hljs-keyword">global</span> user.name <span class="hljs-string">"laravelamit"</span>
+Setați adresa <span class="hljs-keyword">de</span> <span class="hljs-keyword">e</span>-mail:
+git config - <span class="hljs-keyword">global</span> user.email <span class="hljs-string">"amitseo72@gmail.com"</span></code></pre></div>
+<img class="bg lo mq c jop-noMdConv" width="700" height="273" loading="lazy" role="presentation" src="/_resources/4ff4013b2c824c66a05d493afbaa53b6.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<img class="bg lo mq c jop-noMdConv" width="700" height="228" loading="lazy" role="presentation" src="/_resources/bfe52837561949f6bb7cbb647e729c5c.png" style="box-sizing:inherit;vertical-align:middle;background-color:#ffffff;width:680px;max-width:100%;height:auto" />
+<p>Acum, toate configurațiile și simbolurile generate cu succes, acum puteți extrage și împinge cod pe GitHub.</p>
+<p>Sper să vă fie de ajutor. 👍👍</p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
