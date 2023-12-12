@@ -4,9 +4,126 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Tue, 12 Dec 2023 08:15:29 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Dec 2023 08:16:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[Atribute  in Zimbra 10]]></title>
+            <guid>d66af3e45b79452babe666fe07b5b7d0</guid>
+            <pubDate>Wed, 13 Sep 2023 12:45:35 GMT</pubDate>
+            <content:encoded><![CDATA[<p>Pentru politica de parole ar trebui de eclude parolele simple si  usernameul</p>
+<p><strong>La resetarea parolei apare asa fereastra</strong></p>
+<p><img src="/_resources/559d371d8df2111e2394052ba9b425f8.png" /><br />
+<strong>In adminca la  COS apar asa setari</strong><br />
+<img src="/_resources/ad172cbdaac0d03902d0fc52511f06bf.png" /></p>
+<p><strong>Aceste doua atribute lipsesc  in ZCS 8.8.15</strong><br />
+<em>zimbraFeatureAllowUsernameInPassword: Boolean</em><br />
+<em>zimbraPasswordBlockCommonEnabled: Boolean</em><br />
+*<br />
+*<br />
+<strong>Acestea sunt toate  atributele</strong><br />
+type AccountInfoAttrs {<br />
+displayName: String<br />
+zimbraBrandingFolderName: String<br />
+zimbraDomainTrialConvertAtExpiration: Boolean<br />
+zimbraDomainTrialExpirationDate: String<br />
+zimbraDumpsterEnabled: Boolean<br />
+zimbraIsAdminAccount: Boolean<br />
+zimbraIsDelegatedAdminAccount: Boolean<br />
+zimbraFeatureMailEnabled: Boolean<br />
+zimbraFeatureCalendarEnabled: Boolean<br />
+zimbraFeatureBriefcasesEnabled: Boolean<br />
+zimbraFeatureMobileSyncEnabled: Boolean<br />
+zimbraFeatureRelatedContactsEnabled: Boolean<br />
+zimbraFeatureMailForwardingEnabled: Boolean<br />
+zimbraFeatureMailForwardingInFiltersEnabled: Boolean<br />
+zimbraFeatureRetentionPolicyEnabled: Boolean<br />
+<strong>zimbraFeatureAllowUsernameInPassword: Boolean</strong><br />
+<strong>zimbraPasswordBlockCommonEnabled: Boolean</strong><br />
+zimbraPasswordMinAlphaChars: Int<br />
+zimbraPasswordMinNumericChars: Int<br />
+zimbraPasswordMinUpperCaseChars: Int<br />
+zimbraPasswordMinDigitsOrPuncs: Int<br />
+zimbraPasswordMinPunctuationChars: Int<br />
+zimbraPasswordMaxLength: Int<br />
+zimbraPasswordMinLength: Int<br />
+zimbraPasswordMinLowerCaseChars: Int<br />
+zimbraPasswordMinAge: Int<br />
+zimbraPasswordMaxAge: Int<br />
+zimbraPasswordEnforceHistory: Int<br />
+zimbraPasswordAllowedChars: String<br />
+zimbraPasswordAllowedPunctuationChars: String<br />
+zimbraFeatureChangePasswordEnabled: Boolean<br />
+zimbraFeatureResetPasswordStatus: ResetPasswordStatus<br />
+zimbraFeatureWebClientOfflineAccessEnabled: Boolean<br />
+zimbraMailBlacklistMaxNumEntries: Int<br />
+zimbraMailWhitelistMaxNumEntries: Int<br />
+zimbraMailQuota: String<br />
+zimbraPublicSharingEnabled: Boolean<br />
+zimbraExternalSharingEnabled: Boolean<br />
+zimbraFeatureGalEnabled: Boolean<br />
+zimbraFeatureGalAutoCompleteEnabled: Boolean<br />
+zimbraFeatureOutOfOfficeReplyEnabled: Boolean<br />
+zimbraFeatureFiltersEnabled: Boolean<br />
+zimbraFeatureReadReceiptsEnabled: Boolean<br />
+zimbraFeatureSharingEnabled: Boolean<br />
+zimbraFeatureManageZimlets: Boolean<br />
+zimbraFeatureTwoFactorAuthAvailable: Boolean<br />
+zimbraFeatureTwoFactorAuthRequired: Boolean<br />
+zimbraFeatureViewInHtmlEnabled: Boolean<br />
+zimbraFeatureZulipChatEnabled: Boolean<br />
+zimbraFeatureDocumentEditingEnabled: Boolean<br />
+zimbraTwoFactorAuthEnabled: Boolean<br />
+zimbraFeatureTrustedDevicesEnabled: Boolean<br />
+zimbraFeatureAntispamEnabled: Boolean<br />
+zimbraFeatureAppSpecificPasswordsEnabled: Boolean<br />
+zimbraFeatureMailPriorityEnabled: Boolean<br />
+zimbraFileUploadMaxSize: Float<br />
+zimbraFileUploadMaxSizePerFile: Float<br />
+zimbraMailAttachmentMaxSize: Float<br />
+zimbraMtaMaxMessageSize: Float<br />
+zimbraMailAlias: [String]<br />
+zimbraMailSignatureMaxLength: Float<br />
+zimbraFeatureTaggingEnabled: Boolean<br />
+zimbraIdentityMaxNumEntries: Int<br />
+zimbraFeatureIdentitiesEnabled: Boolean<br />
+zimbraFeatureMailSendLaterEnabled: Boolean<br />
+zimbraFeaturePowerPasteEnabled: Boolean<br />
+zimbraFeatureConversationsEnabled: Boolean<br />
+zimbraFeatureImapDataSourceEnabled: Boolean<br />
+zimbraFeaturePop3DataSourceEnabled: Boolean<br />
+zimbraSignupAffiliate: String<br />
+zimbraSignupRecoveryEmail: String<br />
+zimbraFeatureTasksEnabled: Boolean<br />
+zimbraTrialExpirationDate: String<br />
+zimbraTrialConvertAtExpiration: Boolean<br />
+zimbraHierarchicalAddressBookRoot: String<br />
+zimbraBlockEmailSendFromImapPop: Boolean<br />
+zimbraFeatureInstantNotify: Boolean<br />
+zimbraFeatureDiscardInFiltersEnabled: Boolean<br />
+zimbraFeatureAdminMailEnabled: Boolean<br />
+zimbraFeatureAdminPreferencesEnabled: Boolean<br />
+zimbraFeatureImportFolderEnabled: Boolean<br />
+zimbraFeatureExportFolderEnabled: Boolean<br />
+zimbraFeatureGroupCalendarEnabled: Boolean<br />
+}</p>
+<p><strong>Atributele apar  in urmatoarele fisiere</strong></p>
+<p><strong>Adminca</strong><br />
+<em>webapps/zimbraAdmin/js/Admin_all.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/cos/model/ZaCos.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/cos/view/ZaCosXFormView.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/cos/view/ZaNewCosXWizard.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/accounts/model/ZaAccount.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/accounts/view/ZaAccountXFormView.js</em><br />
+<em>webapps/zimbraAdmin/js/zimbraAdmin/accounts/view/ZaNewAccountXWizard.js</em><br />
+*<br />
+*<br />
+<strong>Webapp</strong><br />
+webapps/zimbra/h/changepass<br />
+webapps/zimbra/js/PasswordRecovery_all.js<br />
+webapps/zimbra/js/zimbraMail/share/view/dialog/ZmPasswordRecoveryDialog.js</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Zimbra CLI]]></title>
             <guid>7f76f712bce54527b74bf78ed85d6604</guid>
