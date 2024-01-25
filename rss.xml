@@ -4,13 +4,13 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 25 Jan 2024 11:02:37 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Jan 2024 11:05:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
             <title><![CDATA[Sincronizarea contactelor globale din Zimbra cu MS Outlook]]></title>
             <guid>a958193b52274fcb88e4bae7b74bf739</guid>
-            <pubDate>Thu, 14 Dec 2023 08:28:58 GMT</pubDate>
+            <pubDate>Thu, 25 Jan 2024 08:28:58 GMT</pubDate>
             <content:encoded><![CDATA[<h2 id="sincronizarea-contactelor-globale-din-zimbra-cu-outlook"><strong>Sincronizarea contactelor globale din Zimbra cu OUTLOOK</strong></h2>
 <p>1. Descărcăm pluginul Outlook CalDav Synchronizer de pe siteul oficial - <a title="Sincronizarea contactelor clientul poștal Microsoft Outlook" href="https://caldavsynchronizer.org/download-2/">caldavsynchronizer.org</a></p>
 <p>Versiunea actuala este 4.0.0</p>
