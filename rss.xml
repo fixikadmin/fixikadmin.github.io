@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 25 Jan 2024 11:05:55 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Jan 2024 11:10:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -54,6 +54,28 @@
 <p>NOTE:</p>
 <p>1. In unele cazuri in Outlook, addon-ul  CallSav Sincronizer este dezactivat după instalare, in acest caz este necesar de al active in setările Outlook (File/Options/Add-INS)  , in compartimentul Disables Application Add-Ins acesta poate fi activat</p>
 <p>2.  <a title="#" href="#">Aplicatia Outlook CalDav Synchronizer   poate fi folosita pentru sincronizarea calendarului si altor entitati oferite de Sistemul de posta electronica (Briefcase, Tasks)</a></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[LOGO si Branding Zimbra 10]]></title>
+            <guid>ca17146644424c4aaf19a35b5cbaf6b9</guid>
+            <pubDate>Sun, 14 Jan 2024 08:30:47 GMT</pubDate>
+            <content:encoded><![CDATA[<p>SURSA: <a title="https://wiki.zimbra.com/wiki/How_to_change_modern_user_interface_logo" href="https://wiki.zimbra.com/wiki/How_to_change_modern_user_interface_logo">https://wiki.zimbra.com/wiki/How_to_change_modern_user_interface_logo</a></p>
+<p>Pe acest link se afla logo<br />
+<img src="/_resources/36b2bc64ef7341c3b2cc5d018edc918b.PNG" /></p>
+<p><a title="https://z10.gov.md/modern/clients/default/assets/logo.svg?v=1" href="https://z10.gov.md/modern/clients/default/assets/logo.svg?v=1">https://z10.gov.md/modern/clients/default/assets/logo.svg?v=1</a></p>
+<p><strong>Trecem in directorul</strong><br />
+<code>cd /opt/zimbra/jetty/webapps/zimbra/modern/clients/default/assets</code><br />
+Salvam versiunea<br />
+<code>cp logo.svg logo.svg.old</code><br />
+Copiem vesriunea noastra<br />
+<code>/opt/zimbra/jetty/webapps/zimbra/modern/clients/default/assets</code><br />
+<strong>Dam drepturi</strong></p>
+<p><code>chown zimbra:zimbra /opt/zimbra/jetty/webapps/zimbra/modern/clients/default/assets/logo.svg</code></p>
+<p><strong>Editam  config.json</strong><br />
+<code>nano /opt/zimbra/jetty/webapps/zimbra/modern/clients/default/config.json</code></p>
+<p><strong>FORMAT</strong><br />
+646x159</p>
 ]]></content:encoded>
         </item>
         <item>
