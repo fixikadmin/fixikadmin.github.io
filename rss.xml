@@ -4,9 +4,58 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 25 Jan 2024 10:47:45 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Jan 2024 11:02:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[Sincronizarea contactelor globale din Zimbra cu MS Outlook]]></title>
+            <guid>a958193b52274fcb88e4bae7b74bf739</guid>
+            <pubDate>Thu, 14 Dec 2023 08:28:58 GMT</pubDate>
+            <content:encoded><![CDATA[<h2 id="sincronizarea-contactelor-globale-din-zimbra-cu-outlook"><strong>Sincronizarea contactelor globale din Zimbra cu OUTLOOK</strong></h2>
+<p>1. Descărcăm pluginul Outlook CalDav Synchronizer de pe siteul oficial - <a title="Sincronizarea contactelor clientul poștal Microsoft Outlook" href="https://caldavsynchronizer.org/download-2/">caldavsynchronizer.org</a></p>
+<p>Versiunea actuala este 4.0.0</p>
+<img style="max-width:100%" width="627" height="523" class="jop-noMdConv" />
+<p>2. Se rulează programul de instalare din arhiva descărcată</p>
+<img style="max-width:100%" width="687" height="573" class="jop-noMdConv" />
+<p>3. Instalarea Outlook CalDav Synchronizer</p>
+<p><img style="max-width:100%" width="502" height="412" class="jop-noMdConv" /> <img style="max-width:100%" width="502" height="412" class="jop-noMdConv" /><img style="max-width:100%" width="502" height="412" class="jop-noMdConv" /><img style="max-width:100%" width="502" height="412" class="jop-noMdConv" /></p>
+<p>4. Repornim clientul MS Microsoft Outlook</p>
+<p>5. Următorul pas este configurarea profilelor pentru contacte</p>
+<img style="max-width:100%" width="687" height="508" class="jop-noMdConv" />
+<p>6. Se adaugă un profil “Generic ValDAV/CardDAV”</p>
+<img style="max-width:100%" width="687" height="579" class="jop-noMdConv" />
+<p>7.  Adăugați profilul cu umatoarele date:</p>
+<ul>
+<li>
+<p>DAV URL: <strong><a title="https://mail-domeniu.gov.md/dav/gal@domeniu.gov.md****/%5C_gal" href="https://mail-domeniu.gov.md/dav/gal@domeniu.gov.md****/%5C_gal">https://mail-domeniu.gov.md/dav/gal@domeniu.gov.md/_gal</a></strong></p>
+</li>
+<li>
+<p>Username: gal@domeniu.gov.md</p>
+</li>
+<li>
+<p>Password: XXXXXXXX</p>
+</li>
+<li>
+<p>Email: <a title="mailto:gal@domeniu.gov.md" href="mailto:gal@domeniu.gov.md">gal@domeniu.gov.md</a></p>
+</li>
+<li>
+<p>Alegeți parametrul de sincronizare Outlook ß Server</p>
+</li>
+</ul>
+<p>Scrieti denumirea profilului si alegeți folderul unde doriti sa fie stocate contactele (Implicit este folderul Contacts)</p>
+<img style="max-width:100%" width="687" height="580" class="jop-noMdConv" />
+<p>8. După aceste setări apăsați butonul “Test or discover settings” si alegeți “<strong>_gal</strong>”</p>
+<img style="max-width:100%" width="686" height="438" class="jop-noMdConv" />
+<p>9. In caz ca apare eroarea de mai jos, acceptați, si continuați cu “OK”</p>
+<img style="max-width:100%" width="610" height="515" class="jop-noMdConv" />
+<p>10. In scurt timp dupa sincronizare, in lista de contacte vor apărea toate adresele e-mail si listele de distribuție</p>
+<img style="max-width:100%" width="684" height="514" class="jop-noMdConv" />
+<p> </p>
+<p>NOTE:</p>
+<p>1. In unele cazuri in Outlook, addon-ul  CallSav Sincronizer este dezactivat după instalare, in acest caz este necesar de al active in setările Outlook (File/Options/Add-INS)  , in compartimentul Disables Application Add-Ins acesta poate fi activat</p>
+<p>2.  <a title="#" href="#">Aplicatia Outlook CalDav Synchronizer   poate fi folosita pentru sincronizarea calendarului si altor entitati oferite de Sistemul de posta electronica (Briefcase, Tasks)</a></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[CARTE  VECHE - INDEX]]></title>
             <guid>32b1c39dd72543609277aac08bb7c5e7</guid>
